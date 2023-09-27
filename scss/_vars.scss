@@ -1,0 +1,42 @@
+%ubuntu-light{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+
+%ubuntu-regular{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+
+%ubuntu-medium{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+}
+
+%ubuntu-bold{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+}
+
+%sf-regular{
+  font-family: 'SFProDisplay-Regular', sans-serif;
+  font-weight: 400;
+}
+
+%sf-semibold{
+  font-family: 'SFProDisplay-Semibold', sans-serif;
+  font-weight: 600;
+}
+
+$maxWidth: 1270;
+
+@mixin adaptiv-font($pcSize, $mobSize){
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+  @media (max-width: 767px){
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+  @media(min-width: 767px){
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
